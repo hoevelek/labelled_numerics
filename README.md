@@ -1,6 +1,6 @@
 # My first package
 
-This is my first package.
+This is my first package. Kaho version.
 
 # Installation
 ```bash
