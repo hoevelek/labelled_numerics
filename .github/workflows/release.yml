@@ -31,7 +31,7 @@ jobs:
     # 4) build and publish to PyPI, login in with PyPI_TOKEN
     - name: Build and publish
       # run: flit publish # for real publishing
-      run: flit publish --repository https://test.pypi.org/ # for testing
+      run: flit publish --repository https://test.pypi.org # for testing
       env:
         FLIT_USERNAME: __token__
         FLIT_PASSWORD: ${{ secrets.PYPI_TOKEN }}
