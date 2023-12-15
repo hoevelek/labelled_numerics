@@ -14,7 +14,8 @@ maintainers = [
 ]
 requires-python = ">=3.9"
 readme = "README.md"
-dependencies = [ # it will instaLL also sub dependencies
+# it will instaLL also sub dependencies
+dependencies = [
   "httpx",
   "gidgethub>4.0.0",
 ]
@@ -59,13 +60,3 @@ source = "https://github.com/hoevelek/mypackage/tree/main/mypackage"
 #download = "https://pypi.org/project/numpy/#files"
 #tracker = "https://github.com/numpy/numpy/issues"
 #"release notes" = "https://numpy.org/doc/stable/release"
-
-
-
-#create virtual environment
-#python -m venv .venv_tutorial_kaho
-# activate virtual environment
-#source .venv_tutorial_kaho/bin/activate or Wind.: .\.venv_tutorial_kaho\Scripts\Activate.ps1
-# activate virtual environment in terminal
-#deactivate virtual environment
-#deactivate
