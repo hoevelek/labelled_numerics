@@ -1,7 +1,12 @@
 from .geometry import Line, Point
 from .utils import distance
 
-__all__ = ["Line", "Point", "distance"]  # pretends of using it
+__all__ = [
+    "Line",
+    "Point",
+    "distance",
+]  # pretends of using it, it declares functions which would be imported if we use from mypackage.geometry import *
+__version__ = "0.1.1"  # version of package
 
 
 def personal_message():
