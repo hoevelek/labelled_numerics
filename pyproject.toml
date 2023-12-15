@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi" # how to built package
 
 [project]
 name = "mypackage"
-version = "0.6.0"
+version = "0.7.0"
 description = "My first package"
 license = {file = "LICENSE.txt"}
 
