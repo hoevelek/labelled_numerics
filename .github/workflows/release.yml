@@ -1,0 +1,45 @@
+name: Release
+
+# define trigger: when new release is created
+on:
+  push:
+    tags:
+      - v[0-9]+.[0-9]+.[0-9]+*
+
+# define jobs: release:
+# 1) checkout repo
+# 2) set up python 3.11
+# 3) install flit (needed for publishing to PyPI)
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+
+    - name: Install flit
+      run: pip install flit~=3.4
+
+    # 4) build and publish to PyPI, login in with PyPI_TOKEN
+    - name: Build and publish
+      # run: flit publish # for real publishing
+      run: flit publish --repository https://test.pypi.org./legacy # for testing
+      env:
+        FLIT_USERNAME: __token__
+        FLIT_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+
+    # 5) create release on GitHub
+    - uses: softprops/action-gh-release@v0.1.14
+      name: Create release
+      with:
+          files: |
+              dist/*
+          generate_release_notes: true
