@@ -9,7 +9,7 @@ description = "My first package"
 license = {file = "LICENSE.txt"}
 
 classifiers = [
-    'Development Status :: 0 - Beta',
+    #'Development Status :: 0 - Beta',
     'Intended Audience :: Science/Research',
     'Intended Audience :: Developers',
     'License :: OSI Approved :: BSD License',
