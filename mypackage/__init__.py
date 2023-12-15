@@ -7,7 +7,7 @@ __all__ = [
     "distance",
 ]  # pretends of using it, it declares functions which would be imported if we use from mypackage.geometry import *
 
-__version__ = "0.5.0"  # version of package
+__version__ = "0.6.0"  # version of package
 
 
 def personal_message():
