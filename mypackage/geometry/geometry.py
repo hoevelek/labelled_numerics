@@ -1,4 +1,5 @@
-from ..utils import distance
+# from ..utils import distance
+from ..utils_geometry import distance
 
 
 class Point:
