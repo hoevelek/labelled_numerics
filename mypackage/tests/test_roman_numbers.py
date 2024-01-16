@@ -10,7 +10,32 @@ romans = [
     "V . VI VII VIII IX III",
     "M M M CM XC IX",
 ]
+
 instans = [RomanNumbers(roman) for roman in romans]
+
+
+def test_cases_roman2arab():
+    for arab, roman in zip(arabs, romans):
+        assert RomanNumbers.roman2arab(roman) == arab
+        AssertionError(f"Back conversion of {roman} failed.")
+
+
+def test_conversion():
+    for num in range(0, 3999):
+        assert num == RomanNumbers.label2num(
+            RomanNumbers.num2label(
+                num, RomanNumbers.conversion_dict, sep=" ", method="decimal"
+            ),
+            RomanNumbers.conversion_dict,
+        )
+        # print(f"{num} passed test and is equal to {RomanNumbers.formate_nice_roman(LabelledNumerics.num2label(num, RomanNumbers.conversion_dict, sep=' ', method='decimal'))}")
+        AssertionError(f"Back conversion of {num} failed.")
+
+
+def test_cases_arab2roman():
+    for arab, roman in zip(arabs, romans):
+        assert RomanNumbers.arab2roman(arab) == roman
+        AssertionError(f"Back conversion of {arab} failed.")
 
 
 def test_cases_add_to():
@@ -49,4 +74,13 @@ def test_cases_add_to():
 
 if __name__ == "__main__":
     test_cases_add_to()
+    print("Everything passed")
+
+    test_conversion()
+    print("Everything passed")
+
+    test_cases_roman2arab()
+    print("Everything passed")
+
+    test_cases_arab2roman()
     print("Everything passed")
