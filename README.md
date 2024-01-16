@@ -1,6 +1,6 @@
-# My first package
+# Labelled Numerics
 
-This is my first package. Kaho version.
+Contains packages that are based on handle label-value pairs to built or dechiffre label compositions like chemical formualas, spoken numbers or roman numbers
 
 # Installation
 ```bash
