@@ -1,12 +1,7 @@
-from .geometry import Line, Point
 from .roman_numbers import RomanNumbers
 from .utils.labelled_numerics import LabelledNumerics
-from .utils_geometry import distance
 
 __all__ = [
-    "Line",
-    "Point",
-    "distance",
     "LabelledNumerics",
     "RomanNumbers",
 ]  # API
