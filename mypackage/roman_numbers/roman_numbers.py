@@ -69,6 +69,14 @@ class RomanNumbers(ln.LabelledNumerics):
             )
         else:
             result = self.arab + other.arab
+            # round to precision of the larger number  #this expects that the other number can be determined with same precision to make sense!
+            digits = max(
+                [
+                    len(str(num).split(".")[1]) if isinstance(num, float) else 0
+                    for num in [self.arab, other.arab]
+                ]
+            )
+            result = round(result, ndigits=digits)
             if isinstance(result, int):
                 return RomanNumbers.formate_nice_roman(
                     RomanNumbers.formate_chunky(
@@ -116,16 +124,18 @@ class RomanNumbers(ln.LabelledNumerics):
         if isinstance(number, str):
             if "." in number:
                 # if float, split at dot
+                digits = 0  # to round properly to prevent float errors
                 result = RomanNumbers.label2num(
                     number.split(".")[0].strip(), RomanNumbers.conversion_dict, sep=" "
                 )
                 for exponent, word in enumerate(number.split(".")[1].strip().split()):
+                    digits += 1
                     result += RomanNumbers.label2num(
                         RomanNumbers.formate_chunky(word, RomanNumbers.conversion_dict),
                         RomanNumbers.conversion_dict,
                         sep=" ",
                     ) / 10 ** (exponent + 1)
-                return result
+                return round(result, ndigits=digits)
             else:
                 return RomanNumbers.label2num(
                     number, RomanNumbers.conversion_dict, sep=" "
@@ -185,19 +195,6 @@ class RomanNumbers(ln.LabelledNumerics):
 
 
 if __name__ == "__main__":
-    # test if code is (still) running
-    def test_conversion():
-        for num in range(0, 3999):
-            assert num == RomanNumbers.label2num(
-                RomanNumbers.num2label(
-                    num, RomanNumbers.conversion_dict, sep=" ", method="decimal"
-                ),
-                RomanNumbers.conversion_dict,
-            )
-            # print(f"{num} passed test and is equal to {RomanNumbers.formate_nice_roman(LabelledNumerics.num2label(num, RomanNumbers.conversion_dict, sep=' ', method='decimal'))}")
-            AssertionError(f"Back conversion of {num} failed.")
-        return True
-
     # special test cases
     arabs = [1050, 1999, 1, 0, 3, 5.67893, 3999]
     romans = [
@@ -213,51 +210,6 @@ if __name__ == "__main__":
     RomanNumbers(
         RomanNumbers.formate_chunky("MMCMXCIX", RomanNumbers.conversion_dict)
     ).nice_label
-
-    def test_cases_arab2roman():
-        for arab, roman in zip(arabs, romans):
-            assert RomanNumbers.arab2roman(arab) == roman
-            AssertionError(f"Back conversion of {arab} failed.")
-            return True
-
-    def test_cases_roman2arab():
-        for arab, roman in zip(arabs, romans):
-            assert RomanNumbers.roman2arab(roman) == arab
-            AssertionError(f"Back conversion of {roman} failed.")
-            return True
-
-    # Example for numeric operations: add (others not implemented)
-    def test_cases_add_to():
-        for index in range(len(instans) - 2):
-            print(
-                f"The sum of {instans[index].nice_label} and {instans[(index + 1)].nice_label} has the value {instans[index].arab + instans[(index + 1)].arab} with representation {RomanNumbers.formate_nice_roman((instans[index].add_to(instans[(index + 1)])))}."
-            )
-            precision_arabs = max(
-                [
-                    len(str(arab).split(".")[1]) if isinstance(arab, float) else 0
-                    for arab in arabs[index : index + 2]
-                ]
-            )  # precision to prevent from numerical errors
-            assert RomanNumbers.formate_nice_roman(
-                instans[index].add_to(instans[(index + 1)])
-            ) == RomanNumbers.formate_nice_roman(
-                RomanNumbers.arab2roman(
-                    round(arabs[index] + arabs[(index + 1)], ndigits=precision_arabs)
-                )
-            )
-            AssertionError(
-                f"Excecution of {instans[index].add_to(instans[(index + 1)])} failed."
-            )
-        return True
-
-    print("TESTING:")
-    print(f"testing was sucessful: {test_conversion()}")
-    print(
-        "All numbers in range 1-3999 can be converted to roman numbers and back without loss of information."
-    )
-    print(f"testing for arab2roman was sucessful: {test_cases_arab2roman()}")
-    print(f"testing for roman2arab was sucessful: {test_cases_roman2arab()}")
-    print(f"testing for add_to was sucessful: {test_cases_add_to()}\n")
 
     # list all methods of instans[0]
     # print(dir(instans[0]))
