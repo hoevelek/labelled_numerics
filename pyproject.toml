@@ -41,6 +41,8 @@ readme = "README.md"
 dependencies = [
   "httpx",
   "gidgethub>4.0.0",
+  "numpy>=1.21.0",
+  "mypackage2 @ git+
 ]
 [project.optional-dependencies]
 dev = [
