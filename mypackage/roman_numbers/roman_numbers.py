@@ -7,6 +7,10 @@ logger = setup_logger.logger
 
 
 class RomanNumbers(ln.LabelledNumerics):
+    """Class for Roman numbers. Inherits from abstract class LabelledNumerics meaning that each 'sillabus' of the roman number is a label with a corresponding value.
+    Combinations of this labels correspond to a total number which is the sum of its labels.
+    """
+
     conversion_dict = {
         "zero": 0,
         "I": 1,
@@ -279,7 +283,9 @@ if __name__ == "__main__":
             RomanNumbers("M MM L V I II").nice_label
         )
     )
-    print(f"The sum of all chunks (integer only) (I, X, ...) is {instans[1].sum}.")
+    print(
+        f"The sum of all chunks (integer only) (I, X, ...) is {instans[1].sum_values}."
+    )
     print(f"It should be equal to .arab property: {instans[1].arab}")
     print(
         f"Some implemented operations: If you add two roman numbers with add_to this also works for floats: {instans[0].add_to(instans[1])} with value {instans[0].arab + instans[1].arab}."

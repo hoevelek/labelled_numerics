@@ -9,7 +9,20 @@ logger = setup_logger.logger
 
 
 class LabelledNumerics:
-    """A class representing labelled numerics"""
+    """A class representing labelled numerics:
+    A labelled numeric is a string of labels, e.g. "H H O".
+    Each label has a corresponding numeric value, e.g. H: 1, O: 16.
+    The numeric value of a labelled numeric is the sum of the numeric values of the labels, e.g. "H2O" -> 1 + 1 + 16 = 18.
+    Fucionalities:
+    - convert a string to a labelled numeric
+    - convert a labelled numeric to a string
+    - calculate all combinations of labels that sum to a given number (e. g. all molecules that have a mass of 18)
+    - calculate the combination with least number of labels (e.g. H20 instaed of H18)
+    - calculate the mean of two labelled numerics
+    - append two labelled numerics (e. g. clustering molecules)
+    - calculate the sum of two labelled numerics (e. g. mass of cluster)
+    - convert a chunked string to a chemical formula (e.g. H H H O O O -> H3O3)
+    """
 
     def __init__(self, label_str: str, conversion_dict: dict[str, int], sep: str = " "):
         self.conversion = conversion_dict
