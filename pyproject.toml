@@ -42,7 +42,6 @@ dependencies = [
   "httpx",
   "gidgethub>4.0.0",
   "numpy>=1.21.0",
-  "mypackage @ git+https://github.com/hoevelek/mypackage.git",
 ]
 [project.optional-dependencies]
 dev = [
