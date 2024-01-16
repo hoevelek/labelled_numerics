@@ -1,4 +1,4 @@
-from mypackage.roman_numbers import RomanNumbers
+from labelled_numerics.roman_numbers import RomanNumbers
 
 arabs = [1050, 1999, 1, 0, 3, 5.67893, 3999]
 romans = [

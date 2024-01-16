@@ -9,7 +9,7 @@ __all__ = [
     "distance",
     "LabelledNumerics",
     "RomanNumbers",
-]  # pretends of using it, it declares functions which would be imported if we use from mypackage.geometry import *
+]  # API
 
 __version__ = "0.8.0"  # version of package
 

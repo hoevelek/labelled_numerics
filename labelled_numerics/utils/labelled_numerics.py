@@ -2,7 +2,7 @@ from typing import Tuple
 
 import numpy as np
 
-from mypackage import setup_logger
+from labelled_numerics import setup_logger
 
 # get logger from setup_logger.py
 logger = setup_logger.logger

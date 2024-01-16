@@ -3,9 +3,9 @@ requires = ["flit_core >=3.2,<4"] # what to use to build package, others hatch, 
 build-backend = "flit_core.buildapi" # how to built package
 
 [project]
-name = "mypackage"
+name = "labelled_numerics"
 version = "0.8.0"
-description = "My first package"
+description = "Package to handle data of composed labels, each assigned to a value (e.g. carbons atom 'C': 12 and 'H':1 form composed label 'CH')"
 license = {file = "LICENSE.txt"}
 
 classifiers = [
@@ -58,7 +58,7 @@ docs = [
 [project.urls]
 #homepage = "https://numpy.org"
 #documentation = "https://numpy.org/doc/"
-source = "https://github.com/hoevelek/mypackage/tree/main/mypackage"
+source = "https://github.com/hoevelek/labelled_numerics/tree/main/labelled_numerics"
 #download = "https://pypi.org/project/numpy/#files"
 #tracker = "https://github.com/numpy/numpy/issues"
 #"release notes" = "https://numpy.org/doc/stable/release"
@@ -72,7 +72,7 @@ tag = true
 push = true
 
 [tool.bumpver.file_patterns]
-"mypackage/__init__.py" = [
+"labelled_numerics/__init__.py" = [
     '__version__ = "{pep440_version}"',
 ]
 "pyproject.toml" = [

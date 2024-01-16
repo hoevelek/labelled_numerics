@@ -1,7 +1,7 @@
 from __future__ import annotations  # to allow self-reference in type hints
 
-from mypackage import setup_logger
-from mypackage.utils import labelled_numerics as ln
+from labelled_numerics import setup_logger
+from labelled_numerics.utils import labelled_numerics as ln
 
 logger = setup_logger.logger
 
