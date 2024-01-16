@@ -42,7 +42,7 @@ dependencies = [
   "httpx",
   "gidgethub>4.0.0",
   "numpy>=1.21.0",
-  "mypackage2 @ git+
+  "mypackage @ git+https://github.com/empa-scientific-it/mypackage, branch=main",
 ]
 [project.optional-dependencies]
 dev = [
