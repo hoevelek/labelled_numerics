@@ -41,7 +41,7 @@ def test_cases_arab2roman():
 def test_cases_add_to():
     for index in range(len(instans) - 2):
         print(
-            f"The sum of {instans[index].nice_label} and {instans[(index + 1)].nice_label} has the value {instans[index].arab + instans[(index + 1)].arab} with representation {RomanNumbers.formate_nice_roman((instans[index].add_to(instans[(index + 1)])))}."
+            f"The sum of {instans[index].nice_label} and {instans[(index + 1)].nice_label} has the value {instans[index].arab + instans[(index + 1)].arab} with representation {RomanNumbers.formate_nice_roman(instans[index].add_to(instans[(index + 1)]))}."
         )
         precision_arabs = max(
             [
